@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <appender name="ITUNES" class="org.apache.log4j.FileAppender">
+        <param name="File" value="C:\Users\lakos\Dropbox\Music\WorkSpaces\itunes.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%t] %-5p %c %L - %m%n"/>
+        </layout>
+    </appender>
+    <appender name="SONG" class="org.apache.log4j.FileAppender">
+        <param name="File" value="C:\Users\lakos\Dropbox\Music\WorkSpaces\song.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%t] %-5p %c %L - %m%n"/>
+        </layout>
+    </appender>
+    <appender name="UTILS" class="org.apache.log4j.FileAppender">
+        <param name="File" value="C:\Users\lakos\Dropbox\Music\WorkSpaces\utils.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%t] %-5p %c %L - %m%n"/>
+        </layout>
+    </appender>
+    <logger name="org.samsara.music.convert.Itunes">
+        <level value="INFO"/>
+    </logger>
+    <logger name="org.samsara.music.convert.Song">
+        <level value="INFO"/>
+    </logger>
+    <logger name="org.samsara.music.convert.Utils">
+        <level value="INFO"/>
+    </logger>
+    <root>
+        <level value="DEBUG"/>
+        <appender-ref ref="UTILS"/>
+        <appender-ref ref="SONG"/>
+        <appender-ref ref="ITUNES"/>
+    </root>
+</Configuration>

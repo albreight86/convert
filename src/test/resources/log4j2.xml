@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration name="log4j2.xml" status="info"
+	monitorInterval="30">
+	<Properties>
+		<Property name="LOG_DIR">/mnt/c/Users/lakos/Music</Property>
+	</Properties>
+
+	<Appenders>
+		<Console name="console">
+			<PatternLayout
+				pattern="%d{ISO8601} %-5level [%t] %logger{1} (%M():%L) %X{actual_call} %X{siteId} - %msg%n" />
+		</Console>
+
+		<RollingFile name="file" fileName="${LOG_DIR}/convert.log"
+			filePattern="${LOG_DIR}/convert.log.%i" append="true" bufferedIO="true"
+			immediateFlush="true">
+			<PatternLayout>
+				<Pattern>%d{ISO8601} %-5level [%t] %logger{1} (%M():%L)
+					%X{actual_call} %X{siteId} - %msg%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<!--<TimeBasedTriggeringPolicy/> -->
+				<SizeBasedTriggeringPolicy size="5 MB" />
+			</Policies>
+			<DefaultRolloverStrategy min="1" max="5"
+				fileIndex="min" />
+		</RollingFile>
+	</Appenders>
+
+	<Loggers>
+		<Root level="info">
+			<AppenderRef ref="file" level="info" />
+			<AppenderRef ref="console" level="info" />
+		</Root>
+	</Loggers>
+
+</Configuration>
